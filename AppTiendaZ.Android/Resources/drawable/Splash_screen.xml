@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <bitmap android:src="@drawable/Fondo_EY_TZ"
+            android:gravity="center"
+            android:tileMode="disabled"
+            />
+  </item>
+  <item>
+    <bitmap android:src="@drawable/Efectivo_ya"
+            android:tileMode="disabled"
+            android:gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+  </item>
+</layer-list>

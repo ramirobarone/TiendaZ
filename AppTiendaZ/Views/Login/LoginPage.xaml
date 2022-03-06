@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:custom="clr-namespace:AppTiendaZ.Custom"
+             x:Class="AppTiendaZ.Views.Login.LoginPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="Fondo_EY_TZ">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="20" ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto">
+                <Label Text="Iniciar Sesión" 
+                       Style="{StaticResource TituloNegrita}" 
+                       Grid.Column="0" 
+                       Grid.Row="0"
+                       VerticalTextAlignment="Center"/>
+                <Button FontFamily="GrialLine"                       
+                        BackgroundColor="Transparent"
+                        Grid.Column="1" 
+                        Grid.Row="0"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Command="{Binding CommandClose}"
+                        AutomationProperties.HelpText="Cerrar"
+                        AutomationProperties.Name="Cerrar">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="GrialLine" Glyph="&#xe947;"/>
+                    </Button.ImageSource>
+                </Button>
+            </Grid>
+
+            <Frame Style="{StaticResource FramePrincipal}" Padding="0,0,0,0">
+
+                <Grid ColumnDefinitions="Auto,*,*,Auto" 
+                      RowDefinitions="*,Auto,Auto" Padding="0">
+
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="4" Margin="20">
+
+                        <Label  HorizontalTextAlignment="Center" 
+                           Style="{StaticResource TituloNegrita}"
+                           VerticalOptions="Center"/>
+
+                        <StackLayout Margin="0,20">
+                            <Label Text="Número de cédula" 
+                                   Margin="0"
+                                   VerticalOptions="Center" 
+                                   Style="{StaticResource labelLogin}"/>
+                            <Entry Text="{Binding Identificacion}" 
+                                   VerticalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Keyboard="Numeric"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,20">
+
+                            <Label Text="Número de Cliente" 
+                               VerticalOptions="Center" 
+                               Style="{StaticResource labelLogin}" 
+                               Margin="0" />
+                            <Entry Text="{Binding IdCredito}" 
+                               VerticalOptions="Center" 
+                               Margin="0" 
+                               HorizontalTextAlignment="Center"
+                               Keyboard="Numeric"/>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <!--<Button Text="Consultar número de Cliente" 
+                            Style="{StaticResource BotonVacioAzul}" 
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Command="{Binding CommandNoTengoNumero}"/>-->
+
+                    <Button Text="Continuar" 
+                            Grid.Column="0" 
+                            Grid.Row="2" 
+                            Grid.ColumnSpan="4" 
+                            Style="{StaticResource BotonAzulLogin}" 
+                            Command="{Binding CommandLogIn}"
+                            Margin="0,0,0,15" 
+                            AutomationProperties.HelpText="Continuar"
+                            AutomationProperties.Name="Continuar"/>
+
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTiendaZ.Views.AccountState.AccountStateView"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource AzulZenziya}"
+             xmlns:viewTemplate="clr-namespace:AppTiendaZ.Views.TemplateSelector">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+            <viewTemplate:ViewCuotaSelector x:Key="CustomTemplate"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="20" ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                <Label Text="Estado de Cuenta" 
+                       Style="{StaticResource TituloNegrita}" 
+                       Grid.Column="0" 
+                       Grid.Row="0"/>
+            
+            </Grid>
+            <Frame Style="{StaticResource FramePrincipal}">
+                <ListView ItemsSource="{Binding PlanDePagos}" SelectedItem="{Binding CurrentCuota}" HasUnevenRows="True" ItemTapped="ListView_ItemTapped" x:Name="LstCuotas">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Grid ColumnDefinitions="Auto,*,Auto" RowDefinitions="Auto,Auto" VerticalOptions="Center">
+                                   
+                                        <Label Text="{Binding IconoTilde}" 
+                                           TextColor="{Binding ColorEstado}" 
+                                           Grid.Column="0"
+                                           FontFamily="GrialLine"
+                                           FontAttributes="Bold"/>
+                                        <Label Text="{Binding TextoCuota}" 
+                                           TextColor="{Binding ColorEstado}" 
+                                           Grid.Column="1"
+                                           Style="{StaticResource TextoListViewMenu}"/>
+                                        <Label Text="{Binding IconoFlecha}" 
+                                           Grid.Column="2"
+                                           FontFamily="GrialLine"/>
+
+                                        <!--DETALLE CUOTA VENCIDA-->
+                                        <StackLayout Grid.Column="0" 
+                                              Grid.ColumnSpan="3" 
+                                              Grid.Row="1"
+                                              IsVisible="{Binding VistaCompleta}">
+
+                                            <Grid 
+                                              RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" 
+                                               ColumnDefinitions="Auto,*">
+
+                                                <Label Text="Fecha de vencimiento" 
+                                               Grid.Row="2" 
+                                               Grid.Column="0"/>
+                                                <Label Text="{Binding fechaVencimiento, StringFormat='{}{0:MM/dd/yyyy}'}" 
+                                               HorizontalTextAlignment="End" 
+                                               Grid.Row="2" 
+                                               Grid.Column="1"/>
+                                                <BoxView HeightRequest="1" 
+                                                 Grid.Row="3" 
+                                                 Grid.ColumnSpan="2" 
+                                                 Grid.Column="0" 
+                                                 Color="{StaticResource GrisClaroFondo}"/>
+
+                                                <Label Text="Fecha de cancelación" 
+                                               Grid.Row="4" 
+                                               Grid.Column="0"/>
+                                                <Label Text="{Binding fechaCancelacion, StringFormat='{}{0:MM/dd/yyyy}'}" 
+                                               HorizontalTextAlignment="End" 
+                                               Grid.Row="4" 
+                                               Grid.Column="1"/>
+
+                                                <BoxView HeightRequest="1" 
+                                                 Grid.Row="5" 
+                                                 Grid.ColumnSpan="2" 
+                                                 Grid.Column="0" 
+                                                 Color="{StaticResource GrisClaroFondo}"/>
+
+                                                <Label Text="Valor Original de Cuota" Grid.Row="6" Grid.Column="0"/>
+                                                <Label HorizontalTextAlignment="End" 
+                                                       IsVisible="{Binding Visible}"
+                                                       Grid.Row="6" 
+                                                       Grid.Column="1">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <FormattedString.Spans>
+                                                                <Span Text="RD$ "></Span>
+                                                                <Span Text="{Binding valorCuota}"></Span>
+                                                            </FormattedString.Spans>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <BoxView HeightRequest="1" 
+                                                 Grid.Row="7" 
+                                                 Grid.ColumnSpan="2" 
+                                                 Grid.Column="0" 
+                                                 Color="{StaticResource GrisClaroFondo}"/>
+
+                                                <Label Text="Cargos por atraso" Grid.Row="8" Grid.Column="0"/>
+                                                <Label HorizontalTextAlignment="End" 
+                                                       Grid.Row="8"
+                                                       Grid.Column="1">
+                                                    <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="RD$ "/>
+                                                            <Span Text="{Binding cargoPorAtraso}"/>
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <BoxView HeightRequest="1" 
+                                                         Grid.Row="9" 
+                                                         Grid.ColumnSpan="2" 
+                                                         Grid.Column="0" 
+                                                         Color="{StaticResource GrisClaroFondo}"/>
+                                                <Label Text="Has pagado" Grid.Row="10" Grid.Column="0"/>
+                                                <Label HorizontalTextAlignment="End" 
+                                                       Grid.Row="10" 
+                                                       Grid.Column="1">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <FormattedString.Spans>
+                                                                <Span Text="RD$ "/>
+                                                                <Span Text="{Binding abonado}"/>
+                                                            </FormattedString.Spans>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <BoxView HeightRequest="1" 
+                                                         Grid.Row="11" 
+                                                         Grid.ColumnSpan="2" 
+                                                         Grid.Column="0" 
+                                                         Color="{StaticResource GrisClaroFondo}"/>
+                                                <Label Text="Valor total en atraso" Grid.Row="12" Grid.Column="0"/>
+                                                <Label Grid.Row="12" 
+                                                       Grid.Column="1"
+                                                       HorizontalTextAlignment="End">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <FormattedString.Spans>
+                                                                <Span Text="RD$ " />
+                                                                <Span Text="{Binding valorTotalAtraso}"/>
+                                                            </FormattedString.Spans>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <BoxView HeightRequest="1" 
+                                                         Grid.Row="13" 
+                                                         Grid.ColumnSpan="2" 
+                                                         Grid.Column="0" 
+                                                         Color="{StaticResource GrisClaroFondo}"/>
+
+                                                <Label Text="Días en atraso" Grid.Row="13" Grid.Column="0"/>
+                                                <Label Text="{Binding DiasMora}" 
+                                                       HorizontalTextAlignment="End" 
+                                                       Grid.Row="13" 
+                                                       Grid.Column="1"/>
+                                            </Grid>
+                                        </StackLayout>
+                                        <!--FIN DEDATELLE CUOTA VENCIDA-->
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+                                           

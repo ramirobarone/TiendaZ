@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTiendaZ.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+        <Color x:Key="AzulZenziya">#1F81D4</Color>
+        <Color x:Key="CelesteGris">#eceff1</Color>
+        <Color x:Key="VioletaZenziya">#6C63FB</Color>
+        <Color x:Key="GrisClaroFondo">#F4F5F6</Color>
+        <Color x:Key="GrisOscuro">#c7c7c7</Color>
+        <Color x:Key="GrisAzuladoTexto">#455A64</Color>
+        <Color x:Key="SeparadorListView">#EAEEFF</Color>
+            
+        
+            <!--Botones-->
+            <Style TargetType="Button" x:Key="BotonAzul">
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="#6C63FB" />
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="MinimumHeightRequest" Value="100"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="Button" x:Key="BotonVioleta">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulZenziya}" />
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="MinimumHeightRequest" Value="100"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="Button" x:Key="BotonVacioAzul">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="{StaticResource AzulZenziya}"/>
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="MinimumHeightRequest" Value="100"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="Button" x:Key="BotonVacio">
+                <Setter Property="TextColor" Value="#6C63FB"/>
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="WidthRequest" Value="250"/>
+                <Setter Property="MinimumHeightRequest" Value="100"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="BotonAzulLogin">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource AzulZenziya}" />
+                <Setter Property="FontSize" Value="{OnIdiom Phone=21, Tablet=25}"/>
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="HeightRequest" Value="80"/>
+            </Style>
+            
+            <!--Fin Botones-->
+
+            <!--Entry-->
+            <Style TargetType="Entry">
+                <Setter Property="PlaceholderColor" Value="#6C63FB"/>
+            </Style>
+            <!--Fin Entry-->
+            
+            <!--Picker-->
+            <Style TargetType="Picker">
+                <Setter Property="TitleColor" Value="#6C63FB"/>
+            </Style>
+            <!--Fin Picker-->
+            
+            <!--Labels-->
+            <Style TargetType="Label" x:Key="TextoSecundario">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Margin" Value="15"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="TituloNegrita">
+                <Setter Property="FontFamily" Value="PoppinsRegularBold"/>
+                <Setter Property="FontSize" Value="{OnIdiom Phone=24, Tablet=30}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style TargetType="Label" x:Key="TituloNegritaLogin">
+                <Setter Property="FontFamily" Value="PoppinsRegularBold"/>
+                <Setter Property="FontSize" Value="{OnIdiom Phone=24, Tablet=30}"/>
+                <Setter Property="Margin" Value="15"/>
+                <Setter Property="TextColor" Value="{StaticResource GrisAzuladoTexto}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Label" x:Key="Subtitulo">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="FontSize" Value="{OnIdiom Phone=18, Tablet=22}"/>
+                <Setter Property="TextColor" Value="{StaticResource GrisAzuladoTexto}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Label" x:Key="Moneda">
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="Title"/>
+                <Setter Property="TextColor" Value="{StaticResource AzulZenziya}"/>
+                
+            </Style>
+            <Style TargetType="Label" x:Key="TextoVence">
+                <Setter Property="FontFamily" Value="Roboto"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Label" x:Key="TextoGris">
+                <Setter Property="FontFamily" Value="PoppingsRegular"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="TextColor" Value="{StaticResource GrisOscuro}"/>
+            </Style>
+            <Style TargetType="Label" x:Key="TituloNegritaMain">
+                <Setter Property="FontFamily" Value="PoppinsRegularBold"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="TextColor" Value="#6C63FB"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="TextoSecundarioColleccion">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="TextoSecundarioColleccionNegrita">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+            <Style TargetType="Label" x:Key="labelLogin">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="FontSize" Value="{OnIdiom Phone=18, Tablet=24}"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+            <Style TargetType="Label" x:Key="NameUser">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="FontSize" Value="{OnIdiom Tablet=30, Phone=24}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style TargetType="Label" x:Key="UserDetail">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="FontSize" Value="{OnIdiom Tablet=20, Phone=16}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style TargetType="Label" x:Key="TextoListViewMenu">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="{OnIdiom Phone=16, Tablet=20}"/>
+            </Style>
+            <Style TargetType="Label" x:Key="LabelCerrar">
+                <Setter Property="FontFamily" Value="GrialLine"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="End"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style x:Name="MarginSpan" TargetType="Label">
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="TituloMediosPago">
+                <Setter Property="FontFamily" Value="PoppinsRegular"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
+            <Style TargetType="Label" x:Key="DescripcionMediosPago">
+                <Setter Property="FontFamily" Value="PoppinsRegularBold"/>
+                <Setter Property="FontSize" Value="15"/>
+            </Style>
+            <Style TargetType="Label" x:Key="Grial">
+                <Setter Property="FontFamily" Value="GrialLine"></Setter>
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+            <!--Fin Labels-->
+            <!--Frame-->
+            <Style TargetType="Frame" x:Key="FrameEntry">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="{StaticResource GrisOscuro}"/>
+                <Setter Property="Padding" Value="5,0,5,0"/>
+                <Setter Property="HasShadow" Value="False"/>
+            </Style>
+            <Style TargetType="Frame" x:Key="FramePrincipal">
+                <Setter Property="CornerRadius" Value="12"/>
+                <Setter Property="Margin" Value="0,15,0,-15" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource GrisClaroFondo}"/>
+            </Style>
+            <Style TargetType="Frame" x:Key="FrameMainBoard">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HasShadow" Value="True"/>
+            </Style>
+            <!--FinFrame-->
+            
+            <!--Grid-->
+            <Style TargetType="Grid" x:Key="GridPrincipalLogin">
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            <!--Fin Grid-->
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>

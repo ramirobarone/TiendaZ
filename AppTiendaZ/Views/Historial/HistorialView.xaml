@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"
+             BackgroundImageSource="Fondo_EY_TZ"
+             x:Class="AppTiendaZ.Views.Historial.HistorialView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Margin="20" ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                <Label Text="Historial" 
+                       Style="{StaticResource TituloNegrita}" 
+                       Grid.Column="0" 
+                       Grid.Row="0"/>
+            </Grid>
+            <Frame Style="{StaticResource FramePrincipal}">
+                <ScrollView>
+                    <StackLayout>
+
+                        <StackLayout>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding HistorialTapped}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid ColumnDefinitions="*,Auto" 
+                              RowDefinitions="Auto,Auto">
+                                <Label Text="Historial de Pagos" 
+                                     Grid.Column="0" 
+                                     Style="{StaticResource TextoListViewMenu}"/>
+                                <Label Text="{Binding IconHistorial}" 
+                                     FontFamily="GrialLine" 
+                                     Grid.Column="1" 
+                                     Style="{StaticResource TextoListViewMenu}" 
+                                     FontSize="20" 
+                                     TextColor="{StaticResource AzulZenziya}"/>
+
+                                <ListView Grid.Row="1" 
+                                      Grid.Column="0" 
+                                      ItemsSource="{Binding ListaPago}" 
+                                      IsVisible="{Binding HistorialVisible}"
+                                      SeparatorColor="{StaticResource SeparadorListView}" 
+                                      SelectionMode="None"
+                                      HasUnevenRows="True">
+
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ViewCell.View>
+                                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                                        <Label Grid.Column="0" 
+                                                           Style="{StaticResource TextoListViewMenu}" FontSize="20" Text="{Binding MontoConFormato}">
+                                                        </Label>
+                                                        <Label Style="{StaticResource TextoSecundarioColleccion}" 
+                                                           Text="{Binding fechaPago, StringFormat='{}{0:MM/dd/yyyy}'}" 
+                                                           Grid.Row="1" 
+                                                           Grid.Column="0"/>
+                                                    </Grid>
+                                                </ViewCell.View>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CalendarioTapped}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto">
+                                <Label Text="Calendario Original" 
+                                   Grid.Column="0" 
+                                   Style="{StaticResource TextoListViewMenu}"/>
+                                <Label Text="{Binding IconCalendario}" 
+                                   FontFamily="GrialLine" 
+                                   Grid.Column="1" 
+                                   Style="{StaticResource TextoListViewMenu}" 
+                                   FontSize="20" 
+                                   TextColor="{StaticResource AzulZenziya}"/>
+
+                                <ListView Grid.Row="1" 
+                                      Grid.Column="0" 
+                                      ItemsSource="{Binding ListaCalendario}" 
+                                      IsVisible="{Binding CalendarioVisible}"
+                                      SeparatorColor="{StaticResource SeparadorListView}" 
+                                      SelectionMode="None"
+                                      HasUnevenRows="True">
+
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ViewCell.View>
+                                                    <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+                                                        <Label Grid.Column="0" Style="{StaticResource TextoSecundarioColleccion}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Cuota "/>
+                                                                    <Span Text="{Binding numeroCuota}"/>
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                        <Label Text="{Binding fechaVencimiento, StringFormat='{}{0:MM/dd/yyyy}'}" 
+                                                           Grid.Column="1" 
+                                                           Style="{StaticResource TextoSecundarioColleccion}"/>
+                                                    </Grid>
+                                                </ViewCell.View>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage:PopupPage  xmlns:ContentPage="http://rotorgames.com" 
+                        xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BilleteraPais.Views.Popup.PopupMessage">
+    <ContentPage.Content>
+        <Frame CornerRadius="8" BorderColor="LightGray" BackgroundColor="White" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <StackLayout Spacing="5">
+                <Label Style="{StaticResource Title}"  x:Name="titleControl" HorizontalTextAlignment="Start"/>
+                <BoxView HeightRequest="1" BackgroundColor="{StaticResource rojoNormal}" HorizontalOptions="Fill"></BoxView>
+                <Label Style="{StaticResource SubTitle}" x:Name="messageControl" HorizontalTextAlignment="Center"/>
+
+                <Button Margin="0,20,0,0" Style="{StaticResource ButtonAccess}" x:Name="closeControl" Clicked="closeControl_Clicked" Text="Aceptar" HorizontalOptions="Center"/>
+
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage:PopupPage>

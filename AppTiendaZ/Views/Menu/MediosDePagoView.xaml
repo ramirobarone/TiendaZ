@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTiendaZ.Views.Menu.MediosDePagoView"
+             Shell.NavBarIsVisible="False"
+             BackgroundImageSource="Fondo_EY_TZ">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <Grid Margin="20" ColumnDefinitions="*,Auto" RowDefinitions="Auto">
+
+                    <Label Text="Medios de Pago" 
+                       Style="{StaticResource TituloNegrita}" 
+                       Grid.Column="0" 
+                       Grid.Row="0"/>
+                    <Label Text="&#xe947;" 
+                       Grid.Column="1" 
+                       Grid.Row="0"
+                       Style="{StaticResource LabelCerrar}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding CommandBackTo}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+
+                <Frame Style="{StaticResource FramePrincipal}" >
+                    <StackLayout>
+
+                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto" >
+
+                            <StackLayout   Grid.Column="0"
+                                   Grid.Row="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenDescriptionCommand}"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label Text="Depósito en estafeta"
+                                   Style="{StaticResource TextoListViewMenu}"
+                                 >
+                                </Label>
+                            </StackLayout>
+
+                            <Label Text="&#xe93d;" 
+                                   FontFamily="GrialLine"
+                                   FontSize="20"
+                                   TextColor="{StaticResource AzulZenziya}"
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+                            <StackLayout Grid.ColumnSpan="2" Grid.Row="1" IsVisible="{Binding EstafetaVisible}">
+
+                                <Label Text="Dirígete a cualquier sucursal BanReservas y haz tu pago por ventanilla. Recuerda que para confirmar tu pago debes incluir siempre como referencia tu número de cédula."
+                                                        Grid.Column="0"
+                                                        Grid.Row="1"/>
+
+                                <StackLayout BindableLayout.ItemsSource="{Binding MediosDePagos}"
+                                                             Grid.Row="1" Grid.ColumnSpan="2">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto">
+                                                <Label Text="{Binding titulo}" 
+                                                   Style="{StaticResource TituloMediosPago}" 
+                                                   Grid.Column="0" Grid.Row="0"/>
+                                                <Label Text="{Binding descripcion}" 
+                                                   Style="{StaticResource DescripcionMediosPago}" 
+                                                   Grid.Column="1" 
+                                                   Grid.Row="0"
+                                                   LineBreakMode="CharacterWrap"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                                <Label Text="Referencia: Es imprescindible para confirmar tu pago que incluyas como referencia tu número de cédula." Style="{StaticResource TextoListViewMenu}"/>
+                            </StackLayout>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto,Auto" >
+
+                            <StackLayout Grid.Column="0"
+                                   Grid.Row="0">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenDescriptionTransferenciaCommand}"/>
+                                </StackLayout.GestureRecognizers>
+
+                                <Label Text="Transferencias"
+                                   Style="{StaticResource TextoListViewMenu}">
+                                </Label>
+                            </StackLayout>
+
+                            <Label Text="&#xe93d;" 
+                                   FontFamily="GrialLine"
+                                   FontSize="20"
+                                   TextColor="{StaticResource AzulZenziya}"
+                                   Grid.Column="1"
+                                   Grid.Row="0"/>
+                            <StackLayout Grid.ColumnSpan="2" Grid.Row="1" IsVisible="{Binding TransferenciaVisible}">
+
+                                <Label Text="Dirígete a cualquier sucursal BanReservas y haz tu pago por ventanilla. Recuerda que para confirmar tu pago debes incluir siempre como referencia tu número de cédula."
+                                                        Grid.Column="0"
+                                                        Grid.Row="1"/>
+
+                                <StackLayout BindableLayout.ItemsSource="{Binding MediosDePagos
+}"
+                                                             Grid.Row="1" Grid.ColumnSpan="2">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto">
+                                                <Label Text="{Binding titulo}" 
+                                                   Style="{StaticResource DescripcionMediosPago }" 
+                                                   Grid.Column="0" Grid.Row="0"/>
+                                                <Label Text="{Binding descripcion}" 
+                                                   Style="{StaticResource TituloMediosPago }" 
+                                                   Grid.Column="1" 
+                                                   Grid.Row="0"
+                                                   LineBreakMode="CharacterWrap"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+                                <Label Text="Referencia: Es imprescindible para confirmar tu pago que incluyas como referencia tu número de cédula." Style="{StaticResource TextoListViewMenu}"/>
+                            </StackLayout>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

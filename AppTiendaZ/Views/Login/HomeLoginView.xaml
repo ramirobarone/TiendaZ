@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTiendaZ.Views.Login.HomeLoginView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <!--<Grid RowDefinitions="*,*,*,Auto" ColumnDefinitions="*,*" Style="{StaticResource GridPrincipalLogin}" >
+            <Image Grid.Row="0" 
+                   Grid.Column="0" 
+                   Grid.RowSpan="4" 
+                   Grid.ColumnSpan="2"
+                   Source="Login_TZ.png" 
+                   Aspect="AspectFill"/>
+            <Image Grid.Row="0" 
+                   Source="Login_EY.png"
+                   VerticalOptions="Start"
+                   Margin="20"/>
+            <Label Text="¡Tené el control sobre tu préstamo!" 
+                   Grid.Row="2" 
+                   Grid.ColumnSpan="2"
+                   Style="{StaticResource TituloNegritaLogin}" 
+                   TextColor="White"
+                   VerticalTextAlignment="End"/>
+            <Button Text="INICIAR SESION" 
+                    Grid.Row="3" 
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource BotonAzulLogin}"
+                    Command="{Binding GotoLogin}"/>
+        </Grid>-->
+        <Grid RowDefinitions="*,*,*,Auto" ColumnDefinitions="*,*" Style="{StaticResource GridPrincipalLogin}" >
+            <Image Source="Fondo_EY_TZ.png"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Aspect="AspectFill"/>
+            
+            <Image Grid.Row="0" 
+                   Grid.Column="0" 
+                   Grid.ColumnSpan="2"
+                   Margin="50"
+                   HorizontalOptions="Center"
+                   Source="efectivo_ya.png" />
+            <Image Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Source="Login_EY.png"
+                   Margin="20"/>
+            <Label Text="¡Tené el control sobre tu préstamo!" 
+                   Grid.Row="2" 
+                   Grid.ColumnSpan="2"
+                   Style="{StaticResource TituloNegritaLogin}" 
+                   TextColor="White"
+                   VerticalTextAlignment="End"/>
+            <Button Text="INICIAR SESION" 
+                    Grid.Row="3" 
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource BotonAzulLogin}"
+                    Command="{Binding GotoLogin}"/>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

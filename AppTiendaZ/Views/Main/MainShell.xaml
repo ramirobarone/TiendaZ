@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTiendaZ.Views.Main.MainShell"
+             xmlns:viewsMain="clr-namespace:AppTiendaZ.Views.Main"
+             xmlns:viewsMenu="clr-namespace:AppTiendaZ.Views.Menu"
+             xmlns:viewsHistory="clr-namespace:AppTiendaZ.Views.Historial"
+             xmlns:viewNotifications="clr-namespace:AppTiendaZ.Views.Notificaciones"
+             xmlns:cuenta="clr-namespace:AppTiendaZ.Views.AccountState"
+             Shell.BackgroundColor="White" 
+             Shell.TabBarForegroundColor="White" 
+             Shell.TabBarTitleColor="{StaticResource GrisAzuladoTexto}"
+             Shell.UnselectedColor="{StaticResource GrisOscuro}">
+    
+    <TabBar>
+        <ShellContent 
+                Title="Inicio"
+                ContentTemplate="{DataTemplate viewsMain:MainBoard}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="GrialFill" Glyph="&#xe97f;" Color="{StaticResource AzulZenziya}"/>
+            </ShellContent.Icon>
+        </ShellContent>
+
+            <ShellContent 
+                Title="Estado de Cuenta"
+                ContentTemplate="{DataTemplate cuenta:AccountStateView}">
+                <ShellContent.Icon>
+                   <FontImageSource FontFamily="GrialFill" Glyph="&#xe969;"/>
+                </ShellContent.Icon>
+            </ShellContent>
+        <ShellContent Title="Historial" ContentTemplate="{DataTemplate viewsHistory:HistorialView}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="GrialFill" Glyph="&#xe984;"/>
+            </ShellContent.Icon>
+        </ShellContent>
+        <ShellContent Title="Menu" ContentTemplate="{DataTemplate viewsMenu:MenuView}">
+            <ShellContent.Icon>
+                <FontImageSource FontFamily="GrialFill" Glyph="&#xe9af;"/>
+            </ShellContent.Icon>
+        </ShellContent>
+    </TabBar>
+</Shell>
